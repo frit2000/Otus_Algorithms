@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func buildArray(baseArray map[int]int) map[int]int {
+func BuildArray(baseArray map[int]int) map[int]int {
 	newLen := len(baseArray) + 9
 	newArr := make(map[int]int, 0)
 	for i := 0; i < newLen; i++ {
@@ -20,14 +20,14 @@ func buildArray(baseArray map[int]int) map[int]int {
 	//	fmt.Println("newArr=", newArr)
 	return newArr
 }
-func luckyTickets(n int) int {
+func LuckyTickets(n int) int {
 	baseArr := make(map[int]int, 0)
 	result := 0
 	for i := 0; i < 10; i++ {
 		baseArr[i] = 1
 	}
 	for i := 0; i < n-1; i++ {
-		baseArr = buildArray(baseArr)
+		baseArr = BuildArray(baseArr)
 	}
 	for _, a := range baseArr {
 		result = result + a*a
@@ -39,7 +39,7 @@ func luckyTickets(n int) int {
 func main() {
 
 	for n := 1; n <= 10; n++ {
-		fmt.Println("Tickets of", n, "=", luckyTickets(n))
+		fmt.Println("Tickets of", n, "=", LuckyTickets(n))
 	}
 
 }
